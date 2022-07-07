@@ -1,0 +1,4 @@
+.env
+.msmtprc
+db/
+grades/

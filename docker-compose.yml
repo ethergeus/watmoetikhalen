@@ -1,0 +1,58 @@
+version: '3.6'
+services:
+  database:
+    image: mysql:5.7
+    container_name: ${COMPOSE_PROJECT_NAME}_database
+    volumes:
+      - db:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d
+      - ./db:/backup
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASS
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASS
+      TZ: $TZ
+    networks:
+      - backend
+  php:
+    depends_on:
+      - database
+    image: watmoetikhalen-php:apache
+    build:
+      context: .
+    container_name: ${COMPOSE_PROJECT_NAME}_php
+    volumes:
+      - html:/var/www/html
+      - ./.msmtprc:/etc/msmtprc
+      - ./grades:/var/www/html/userdata/grades
+    restart: always
+    environment:
+      DOMAIN_PRIMARY: $DOMAIN_PRIMARY
+      DB_NAME: $DB_NAME
+      DB_USER: $DB_USER
+      DB_PASS: $DB_PASS
+      RECAPTCHA_SECRET: $RECAPTCHA_SECRET
+      VIRTUAL_HOST: $DOMAINS
+      LETSENCRYPT_HOST: $DOMAINS
+      NETWORK_ACCESS: $NETWORK_ACCESS
+      TZ: $TZ
+    networks:
+      - frontend
+      - backend
+      - nginx_backend
+
+volumes:
+  db:
+  html:
+
+networks:
+  frontend:
+    external:
+      name: nginx_frontend
+  backend:
+    driver: bridge
+  nginx_backend:
+    external:
+      name: nginx_backend

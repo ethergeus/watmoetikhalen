@@ -1,0 +1,179 @@
+body {
+    background: url(../img/linedpaper.png);
+}
+
+.navbar-brand {
+    font-family: 'Bad Script', cursive;
+    font-size: 1.5em;
+}
+
+.list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus,
+.list-group-item:focus {
+    background-color: #28b62c;
+}
+
+.modal-register,
+.modal-forgot-pwd,
+.modal-pwd-reset {
+    position: fixed;
+    max-width: 700px;
+    top: 65px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    text-align: center;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.no-gutter {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+header.title {
+    height: 200px;
+    display: table;
+    width: 100%;
+}
+
+.title-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.title-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.title h1 {
+    font-family: 'Bad Script', cursive;
+}
+
+main.application {
+    min-height: 600px;
+    padding: 20px 0;
+}
+
+.niveau .tab-content {
+    padding: 0;
+}
+
+.profielen {
+    padding: 0;
+    font-size: 12px;
+}
+
+.table-of-contents,
+.vakkenpakket {
+    margin-top: 1em;
+}
+
+legend {
+    margin-bottom: 0;
+}
+
+.vak {
+    margin: 10px 0;
+}
+
+.vakkeuze {
+    text-align: center;
+    padding: 0;
+}
+
+.vakkeuze,
+.cijfers {
+    margin-top: 25px;
+}
+
+.vakkeuze .form-control {
+    margin-bottom: 2px;
+}
+
+.form-options .btn-reset,
+.form-options .btn-submit,
+.btn-forget,
+.btn-remove,
+.btn-add {
+    margin: 5px;
+}
+
+.cijfers {
+    padding-right: 0;
+}
+
+.cijfers .form-group {
+    width: 50px;
+    float: left;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 5px;
+}
+
+.cijfer .form-control {
+    text-align: center;
+}
+
+.cijfer .form-control:first-child {
+    margin-bottom: 2px;
+}
+
+.opties {
+    padding: 0;
+}
+
+.punten,
+.doel {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.vak .opties .punten .control-label,
+.vak .opties .doel .control-label {
+    padding-top: 0;
+}
+
+.punten .form-control,
+.doel .form-control {
+    width: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer.form-options {
+    text-align: center;
+}
+
+.application-output h2 {
+    margin-top: 0;
+}
+
+@media (max-width: 767px) {
+    body {
+        background: #fff;
+    }
+}
