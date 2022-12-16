@@ -1,21 +1,21 @@
 <?php
 # Developer options
 define('ALLOW_DEBUG', false);
-define('REDIRECT_URL', 'https://' . $_ENV['DOMAIN_PRIMARY']);
-define('SECRET', $_ENV['RECAPTCHA_SECRET']);
+define('REDIRECT_URL', 'https://' . getenv('DOMAIN_PRIMARY'));
+define('SECRET', getenv('RECAPTCHA_SECRET'));
 define('RECAPTCHA_URL', 'https://www.google.com/recaptcha/api/siteverify');
 
 # Database credentials from process environment and docker config
 define('DB_HOST', 'database');
-define('DB_NAME', $_ENV['DB_NAME']);
-define('DB_USER', $_ENV['DB_USER']);
-define('DB_PASS', $_ENV['DB_PASS']);
+define('DB_NAME', getenv('DB_NAME'));
+define('DB_USER', getenv('DB_USER'));
+define('DB_PASS', getenv('DB_PASS'));
 
 # Automatic mail options
-define('MAIL_TITLE', 'Je bent bijna klaar met registreren bij ' . $_ENV['DOMAIN_PRIMARY']);
-define('MAIL_TITLE_RESET_PWD', 'Je account bij ' . $_ENV['DOMAIN_PRIMARY'] . ' opnieuw instellen');
-define('MAIL_HEADERS', 'From: "Wat moet ik halen" <noreply@' . $_ENV['DOMAIN_PRIMARY'] . '>' . "\r\n" .
-                       'Reply-To: contact@' . $_ENV['DOMAIN_PRIMARY'] . "\r\n" .
+define('MAIL_TITLE', 'Je bent bijna klaar met registreren bij ' . getenv('DOMAIN_PRIMARY'));
+define('MAIL_TITLE_RESET_PWD', 'Je account bij ' . getenv('DOMAIN_PRIMARY') . ' opnieuw instellen');
+define('MAIL_HEADERS', 'From: "Wat moet ik halen" <noreply@' . getenv('DOMAIN_PRIMARY') . '>' . "\r\n" .
+                       'Reply-To: contact@' . getenv('DOMAIN_PRIMARY') . "\r\n" .
                        'X-Mailer: PHP/' . phpversion() . "\r\n" .
                        'Content-type: text/html; charset=iso-8859-1');
 

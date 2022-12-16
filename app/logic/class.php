@@ -1,5 +1,5 @@
 <?php
-define('ERROR_GENERIC', 'Als dit probleem zich blijft voordoen gelieve een mail te sturen naar <a href="mailto:bugs@' . $_ENV['DOMAIN_PRIMARY'] . '">bugs@' . $_ENV['DOMAIN_PRIMARY'] . '</a>. Bij voorbaat dank.');
+define('ERROR_GENERIC', 'Als dit probleem zich blijft voordoen gelieve een mail te sturen naar <a href="mailto:bugs@' . getenv('DOMAIN_PRIMARY') . '">bugs@' . getenv('DOMAIN_PRIMARY') . '</a>. Bij voorbaat dank.');
 
 class Login
 {
@@ -183,7 +183,7 @@ class Registration
                     $result = $this->db_connection->query($sql);
                     if ($result) {
                         $mail_body = file_get_contents('templates/confirm-email.html');
-                        $mail_variables = array('domain_primary' => $_ENV['DOMAIN_PRIMARY'], 'user_name' => $user_name, 'verify_link' => '?validate&u=' . $user_name . '&v=' . $user_activation);
+                        $mail_variables = array('domain_primary' => getenv('DOMAIN_PRIMARY'), 'user_name' => $user_name, 'verify_link' => '?validate&u=' . $user_name . '&v=' . $user_activation);
                         foreach($mail_variables as $key => $value) {
                             $mail_body = str_replace('{{ ' . $key . ' }}', $value, $mail_body);
                         }
@@ -255,7 +255,7 @@ class Registration
                     $user_name = $user->user_name;
                     $user_email = $user->user_email;
                     $user_activation = $user->user_activation;
-                    $mail_variables = array('domain_primary' => $_ENV['DOMAIN_PRIMARY'], 'user_name' => $user_name, 'verify_link' => '?forgot&u=' . $user_name . '&v=' . $user_activation);
+                    $mail_variables = array('domain_primary' => getenv('DOMAIN_PRIMARY'), 'user_name' => $user_name, 'verify_link' => '?forgot&u=' . $user_name . '&v=' . $user_activation);
                     $mail_body = file_get_contents('templates/forgot-password.html');
                     foreach($mail_variables as $key => $value) {
                         $mail_body = str_replace('{{ ' . $key . ' }}', $value, $mail_body);
