@@ -1,6 +1,6 @@
 FROM php:apache
 
-RUN apt update && apt install -y ca-certificates msmtp mailutils
+RUN apt update && apt install -y ca-certificates openssl msmtp mailutils
 RUN docker-php-ext-install mysqli
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
