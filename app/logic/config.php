@@ -18,7 +18,7 @@ define('MAIL_HEADERS', 'From: "Wat moet ik halen" <noreply@' . getenv('DOMAIN_PR
                        'Reply-To: contact@' . getenv('DOMAIN_PRIMARY') . "\r\n" .
                        'Mime-Version: 1.0' . "\r\n" .
                        'Content-Transfer-Encoding: quoted-printable' . "\r\n" .
-                       'Content-type: text/plain; charset=UTF-8; format=flowed');
+                       'Content-type: text/html; charset=UTF-8');
 
 # Subjects
 define('SUBJECTS', array(
