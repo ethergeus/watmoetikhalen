@@ -17,7 +17,7 @@ define('MAIL_TITLE_RESET_PWD', 'Je account bij ' . getenv('DOMAIN_PRIMARY') . ' 
 define('MAIL_HEADERS', 'From: "Wat moet ik halen" <noreply@' . getenv('DOMAIN_PRIMARY') . '>' . "\r\n" .
                        'Reply-To: contact@' . getenv('DOMAIN_PRIMARY') . "\r\n" .
                        'X-Mailer: PHP/' . phpversion() . "\r\n" .
-                       'Content-type: text/html; charset=iso-8859-1');
+                       'Content-type: text/html; charset=UTF-8');
 
 # Subjects
 define('SUBJECTS', array(
