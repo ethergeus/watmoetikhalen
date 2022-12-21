@@ -187,7 +187,7 @@ class Registration
                         foreach($mail_variables as $key => $value) {
                             $mail_body = str_replace('{{ ' . $key . ' }}', $value, $mail_body);
                         }
-                        if (mail($user_email, MAIL_TITLE, $mail_body, MAIL_HEADERS)) {
+                        if (mail($user_email, MAIL_TITLE, quoted_printable_encode($mail_body), MAIL_HEADERS)) {
                             $this->messages[] = 'Een email is verstuurd naar het door jou opgegeven adres. Via de link in de mail kun je je account activeren. Als je de mail niet kunt vinden kijk dan even of deze in je Spam-folder is beland.';
                         } else {
                             $this->errors[] = 'Er was een probleem tijdens het verzenden van een email naar het door jou opgegeven adres. ' . ERROR_GENERIC;
@@ -260,7 +260,7 @@ class Registration
                     foreach($mail_variables as $key => $value) {
                         $mail_body = str_replace('{{ ' . $key . ' }}', $value, $mail_body);
                     }
-                    mail($user_email, MAIL_TITLE_RESET_PWD, $mail_body, MAIL_HEADERS);
+                    mail($user_email, MAIL_TITLE_RESET_PWD, quoted_printable_encode($mail_body), MAIL_HEADERS);
                 }
                 $this->messages[] = 'Als dit account bij ons bekend is zal het een email ontvangen met daarin een link om het wachtwoord opnieuw in te stellen.';
             } else {

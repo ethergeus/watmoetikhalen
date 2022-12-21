@@ -16,8 +16,9 @@ define('MAIL_TITLE', 'Je bent bijna klaar met registreren bij ' . getenv('DOMAIN
 define('MAIL_TITLE_RESET_PWD', 'Je account bij ' . getenv('DOMAIN_PRIMARY') . ' opnieuw instellen');
 define('MAIL_HEADERS', 'From: "Wat moet ik halen" <noreply@' . getenv('DOMAIN_PRIMARY') . '>' . "\r\n" .
                        'Reply-To: contact@' . getenv('DOMAIN_PRIMARY') . "\r\n" .
-                       'X-Mailer: PHP/' . phpversion() . "\r\n" .
-                       'Content-type: text/html; charset=UTF-8');
+                       'Mime-Version: 1.0' . "\r\n" .
+                       'Content-Transfer-Encoding: quoted-printable' . "\r\n" .
+                       'Content-type: text/plain; charset=UTF-8; format=flowed');
 
 # Subjects
 define('SUBJECTS', array(
